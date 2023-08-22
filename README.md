@@ -30,5 +30,5 @@ MetricsAPI is an extremely lightweight API built with Flask that I created to mo
 To run MetricsAPI you will need to install Flask.
 
 MetricsAPI gets its data from shell commands. You will need to install the following with you package manager:
-`sysstat
-sensors`
+`sysstat`
+`sensors`
