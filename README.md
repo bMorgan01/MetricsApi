@@ -34,6 +34,6 @@ MetricsAPI gets its data from shell commands. You will need to install the follo
 `sensors`
 
 ### Try It!
-I run the following command to start the API. Keep in mind that I only run this on my local network and the API is not open to the internet. As per Flask documention --app run is not intended for production. You should follow a Flask app deployment procedure (there are tons of them online) if you wish to open your API to the WWW.
+I run the following command to start the API. Keep in mind that I only run this on my local network and the API is not open to the internet. As per Flask documention --app run is not intended for production. You should follow a Flask app deployment procedure (there are tons of them online) if you wish to open your API to the world wide web.
 
 `flask --app main run --host=0.0.0.0`
