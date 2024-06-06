@@ -60,7 +60,8 @@ def temps():
 
 @app.route("/api/disks")
 def disks():
-    out = subprocess.run(["iostat", "-d", "-o", "JSON"], capture_output = True, text = True).stdout
+    out = '{"disks":[' + subprocess.getoutput("df -P --total -x squashfs | awk \'BEGIN {printf\"{\\\"discarray\\\":[\"}{if($1==\"Filesystem\")next;if(a)printf\",\";printf\"{\\\"mount\\\":\\\"\"$6\"\\\",\\\"size\\\":\\\"\"$2\"\\\",\\\"used\\\":\\\"\"$3\"\\\",\\\"avail\\\":\\\"\"$4\"\\\",\\\"use%\\\":\\\"\"$5\"\\\"}\";a++;}END{print\"]}\";}\'")
+    out += "," + subprocess.run(["iostat", "-d", "-o", "JSON"], capture_output = True, text = True).stdout + "]}"
     return jsonify(remove_empty_lists(json.loads(out)))
 
 @app.route("/api/memory")
